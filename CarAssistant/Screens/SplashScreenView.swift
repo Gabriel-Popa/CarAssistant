@@ -38,6 +38,7 @@ struct SplashScreenView: View {
                             .shadow(radius: 25, x: 7, y: 5)
                         
                     }
+                    .padding(.bottom, 100)
                     Spacer()
                     
                     NavigationLink(isActive: $viewModel.toMainScreen) {

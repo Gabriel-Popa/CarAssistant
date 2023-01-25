@@ -17,7 +17,7 @@ struct CarAssistantTabView: View {
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            MyCarsView(car: CarViewModel())
+            MyCarsView()
                 .navigationTitle("My Cars")
                 .navigationBarTitleDisplayMode(.inline)
                 .tabItem {

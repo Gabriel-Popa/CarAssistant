@@ -10,11 +10,11 @@
 		081F1E0C297EB2A60037CF95 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F1E0B297EB2A60037CF95 /* AlertsView.swift */; };
 		081F1E0E297EBDB10037CF95 /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F1E0D297EBDB10037CF95 /* ImageCardView.swift */; };
 		086E894F29812A4E0045B016 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E894E29812A4E0045B016 /* Car.swift */; };
-		086E895229812C070045B016 /* CarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E895129812C070045B016 /* CarViewModel.swift */; };
+		086E8956298180090045B016 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E8955298180090045B016 /* SearchBarView.swift */; };
 		0880704E297E8A2D0097D59B /* CarAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880704D297E8A2D0097D59B /* CarAssistantApp.swift */; };
 		08807052297E8A2F0097D59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08807051297E8A2F0097D59B /* Assets.xcassets */; };
 		08807055297E8A2F0097D59B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08807054297E8A2F0097D59B /* Preview Assets.xcassets */; };
-		0880705F297E8A530097D59B /* Car'sAssistantTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705B297E8A530097D59B /* Car'sAssistantTabView.swift */; };
+		0880705F297E8A530097D59B /* CarAssistantTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705B297E8A530097D59B /* CarAssistantTabView.swift */; };
 		08807060297E8A530097D59B /* MyCarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705C297E8A530097D59B /* MyCarsView.swift */; };
 		08807062297E8A530097D59B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705E297E8A530097D59B /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
@@ -23,12 +23,12 @@
 		081F1E0B297EB2A60037CF95 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
 		081F1E0D297EBDB10037CF95 /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
 		086E894E29812A4E0045B016 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
-		086E895129812C070045B016 /* CarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewModel.swift; sourceTree = "<group>"; };
+		086E8955298180090045B016 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		0880704A297E8A2D0097D59B /* CarAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0880704D297E8A2D0097D59B /* CarAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarAssistantApp.swift; sourceTree = "<group>"; };
 		08807051297E8A2F0097D59B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08807054297E8A2F0097D59B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0880705B297E8A530097D59B /* Car'sAssistantTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Car'sAssistantTabView.swift"; sourceTree = "<group>"; };
+		0880705B297E8A530097D59B /* CarAssistantTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarAssistantTabView.swift; sourceTree = "<group>"; };
 		0880705C297E8A530097D59B /* MyCarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsView.swift; sourceTree = "<group>"; };
 		0880705E297E8A530097D59B /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,14 +50,6 @@
 				086E894E29812A4E0045B016 /* Car.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		086E895029812BF10045B016 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				086E895129812C070045B016 /* CarViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		086E8953298149340045B016 /* Screens */ = {
@@ -90,10 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				0880704D297E8A2D0097D59B /* CarAssistantApp.swift */,
-				0880705B297E8A530097D59B /* Car'sAssistantTabView.swift */,
+				0880705B297E8A530097D59B /* CarAssistantTabView.swift */,
 				086E8953298149340045B016 /* Screens */,
 				08807063297E8A600097D59B /* Views */,
-				086E895029812BF10045B016 /* ViewModel */,
 				086E894D29812A3B0045B016 /* Model */,
 				08807051297E8A2F0097D59B /* Assets.xcassets */,
 				08807053297E8A2F0097D59B /* Preview Content */,
@@ -113,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				081F1E0D297EBDB10037CF95 /* ImageCardView.swift */,
+				086E8955298180090045B016 /* SearchBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,10 +183,10 @@
 				081F1E0E297EBDB10037CF95 /* ImageCardView.swift in Sources */,
 				081F1E0C297EB2A60037CF95 /* AlertsView.swift in Sources */,
 				0880704E297E8A2D0097D59B /* CarAssistantApp.swift in Sources */,
-				0880705F297E8A530097D59B /* Car'sAssistantTabView.swift in Sources */,
+				086E8956298180090045B016 /* SearchBarView.swift in Sources */,
+				0880705F297E8A530097D59B /* CarAssistantTabView.swift in Sources */,
 				086E894F29812A4E0045B016 /* Car.swift in Sources */,
 				08807060297E8A530097D59B /* MyCarsView.swift in Sources */,
-				086E895229812C070045B016 /* CarViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

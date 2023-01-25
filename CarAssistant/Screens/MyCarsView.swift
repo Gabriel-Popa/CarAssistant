@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+extension MyCarsView {
+    @MainActor class ViewModel: ObservableObject {
+        @Published var cars = [Car]()
+    }
+}
+
 struct MyCarsView: View {
     
-    @StateObject var car: CarViewModel
+    @StateObject var viewModel: ViewModel = .init()
     @State var isShowing = false
     @State var myPlateNumber = ""
     @State var myCarModel = ""
@@ -18,7 +24,7 @@ struct MyCarsView: View {
         ZStack {
             VStack {
                 ScrollView {
-                    ForEach(car.cars) { myCar in
+                    ForEach(viewModel.cars) { myCar in
                         HStack {
                             ImageCardView()
                             
@@ -49,8 +55,32 @@ struct MyCarsView: View {
                     }
                 }
                 .sheet(isPresented: $isShowing) {
-                    TextField("Plate Number", text: $myPlateNumber)
-                    TextField("Car model", text: $myCarModel)
+                    ZStack {
+                            Rectangle()
+                                .foregroundColor(.white)
+                        
+                        VStack {
+                            HStack {
+                                TextField("Plate Number", text: $myPlateNumber)
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 13)
+                            }
+                            .frame(height: 40)
+                            .cornerRadius(13)
+                            .padding()
+                            
+                            HStack {
+                                TextField("Car Model", text: $myCarModel)
+                                    .foregroundColor(.gray)
+                                    .padding(.leading, 13)
+                            }
+                            .frame(height: 40)
+                            .cornerRadius(13)
+                            .padding()
+                            
+                            Spacer()
+                        }
+                    }
                 }
                 Spacer()
             }
@@ -60,6 +90,6 @@ struct MyCarsView: View {
 
 struct MyCarsView_Previews: PreviewProvider {
     static var previews: some View {
-        MyCarsView(car: CarViewModel())
+        MyCarsView()
     }
 }
