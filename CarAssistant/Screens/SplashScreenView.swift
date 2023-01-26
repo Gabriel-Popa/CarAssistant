@@ -18,6 +18,7 @@ struct SplashScreenView: View {
     @StateObject var viewModel: ViewModel = .init()
     
     var body: some View {
+        
             NavigationView {
                 ZStack {
                     Color(.systemBlue)
@@ -40,12 +41,13 @@ struct SplashScreenView: View {
                     }
                     .padding(.bottom, 100)
                     Spacer()
+                }
                     
-                    NavigationLink(isActive: $viewModel.toMainScreen) {
+                if viewModel.toMainScreen {
+                    VStack {
                         CarAssistantTabView()
-                    } label: {
-                        EmptyView()
-                    }
+                        Spacer()
+                    }.ignoresSafeArea()
                 }
                     
                 }.onAppear {

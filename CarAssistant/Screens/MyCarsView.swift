@@ -9,80 +9,89 @@ import SwiftUI
 
 extension MyCarsView {
     @MainActor class ViewModel: ObservableObject {
+        @Published var toAddCar = false
         @Published var cars = [Car]()
+        
+        func handleAddAction() {
+            self.toAddCar = true
+        }
+        
+        func isButtonFromListVisible() -> Bool {
+            return cars.isEmpty
+        }
+        
+        func isButtonFromNavigationBarVisible() -> Bool {
+            return cars.isEmpty == false
+        }
     }
 }
 
 struct MyCarsView: View {
     
     @StateObject var viewModel: ViewModel = .init()
-    @State var isShowing = false
-    @State var myPlateNumber = ""
-    @State var myCarModel = ""
     
     var body: some View {
-        ZStack {
-            VStack {
-                ScrollView {
-                    ForEach(viewModel.cars) { myCar in
-                        HStack {
-                            ImageCardView()
+        NavigationView {
+            ZStack {
+                VStack {
+                    ScrollView {
+                        ForEach(viewModel.cars) { myCar in
+                            HStack {
+                                ImageCardView()
+                                
+                                VStack {
+                                    Text("\(myCar.plateNumber)")
+                                        .bold()
+                                    Text("\(myCar.carModel)")
+                                }
+                            }
+                            .padding(.trailing, 90)
+                        }
+                    }
+                }
+                
+                if viewModel.isButtonFromListVisible() {
+                    VStack {
+                        Spacer()
+                        Button {
+                            viewModel.handleAddAction()
+                        } label: {
                             
                             VStack {
-                                Text("Plate Number")
-                                    .bold()
-                                Text("Car model")
+                                Image(systemName: "plus.circle.fill")
+                                    .resizable()
+                                    .frame(width: 41, height: 41)
+                                Text("Add a new car")
+                                    .font(.system(size: 17))
+                                    .foregroundColor(.black)
                             }
                         }
-                        .padding(.trailing, 90)
+                        Spacer()
                     }
                 }
             }
-            
-            VStack {
-                Spacer()
+            .sheet(isPresented: $viewModel.toAddCar) {
+                AddCarView(viewModel: .init(isVisible: $viewModel.toAddCar, myCars: $viewModel.cars))
+            }
+            .navigationTitle("My Cars")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
                 Button {
-                    self.isShowing = true
+                    viewModel.handleAddAction()
                 } label: {
-                    
-                    VStack {
-                        Image(systemName: "plus.circle.fill")
-                            .resizable()
-                            .frame(width: 41, height: 41)
-                        Text("Add a new car")
-                            .font(.system(size: 17))
-                            .foregroundColor(.black)
-                    }
-                }
-                .sheet(isPresented: $isShowing) {
-                    ZStack {
-                            Rectangle()
-                                .foregroundColor(.white)
+                    if viewModel.isButtonFromNavigationBarVisible() {
+                        
+                        Spacer()
                         
                         VStack {
-                            HStack {
-                                TextField("Plate Number", text: $myPlateNumber)
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 13)
-                            }
-                            .frame(height: 40)
-                            .cornerRadius(13)
-                            .padding()
                             
-                            HStack {
-                                TextField("Car Model", text: $myCarModel)
-                                    .foregroundColor(.gray)
-                                    .padding(.leading, 13)
-                            }
-                            .frame(height: 40)
-                            .cornerRadius(13)
-                            .padding()
-                            
+                            Image(systemName: "plus.circle.fill")
+                                
                             Spacer()
                         }
+                        .padding()
                     }
                 }
-                Spacer()
             }
         }
     }

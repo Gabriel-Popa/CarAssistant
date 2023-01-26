@@ -18,15 +18,13 @@ struct CarAssistantTabView: View {
         
         TabView(selection: $selectedTab) {
             MyCarsView()
-                .navigationTitle("My Cars")
-                .navigationBarTitleDisplayMode(.inline)
                 .tabItem {
                     VStack {
                         Image(systemName: "car")
                         Text("My cars")
                 }
             }
-                .tag(CarAssistantTabView.myCarTab)
+            .tag(CarAssistantTabView.myCarTab)
             
             AlertsView()
                 .tabItem {

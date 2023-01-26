@@ -11,7 +11,8 @@ import SwiftUI
 struct CarAssistantApp: App {
     var body: some Scene {
         WindowGroup {
-                SplashScreenView()
+//                SplashScreenView()
+            CarAssistantTabView()
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlertsView: View {
     var body: some View {
+        
         NavigationView {
             VStack(alignment: .leading) {
                 HStack {
