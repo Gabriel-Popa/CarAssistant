@@ -37,6 +37,7 @@ struct MyCarsView: View {
                     ScrollView {
                         ForEach(viewModel.cars) { myCar in
                             HStack {
+                                
                                 ImageCardView()
                                 
                                 VStack {
@@ -85,7 +86,7 @@ struct MyCarsView: View {
                         
                         VStack {
                             
-                            Image(systemName: "plus.circle.fill")
+                            Text("Add Car")
                                 
                             Spacer()
                         }

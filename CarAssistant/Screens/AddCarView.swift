@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 extension AddCarView {
     
@@ -14,6 +15,9 @@ extension AddCarView {
         @Binding var myCars: [Car]
         @Published var myPlateNumber = ""
         @Published var myCarModel = ""
+        @Published var selectedItem: PhotosPickerItem? = nil
+        @Published var selectedImageData: Data? = nil
+
         
         init(isVisible: Binding<Bool>, myCars: Binding<[Car]>) {
             _isVisible = isVisible
@@ -27,6 +31,7 @@ extension AddCarView {
     }
 }
 
+@available(iOS 16.0, *)
 struct AddCarView: View {
     
     @StateObject var viewModel: ViewModel
@@ -37,6 +42,10 @@ struct AddCarView: View {
                     .foregroundColor(.white)
             
             VStack {
+                Text("Car Details")
+                    .bold()
+                    .font(.system(size: 20))
+                    .padding()
                 HStack {
                     TextField("Plate Number", text: $viewModel.myPlateNumber)
                         .foregroundColor(.black)
@@ -54,6 +63,36 @@ struct AddCarView: View {
                 .frame(height: 40)
                 .cornerRadius(13)
                 .padding()
+                
+                PhotosPicker(selection: $viewModel.selectedItem, matching: .images, photoLibrary: .shared()) {
+                    
+                    Label {
+                        Text("Add a photo")
+                    } icon: {
+                        
+                        if let selectedImage = viewModel.selectedImageData,
+                           let uiImage = UIImage(data: selectedImage) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 50, height: 50)
+                        } else {
+                            Image("addPhoto")
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding()
+                .onChange(of: viewModel.selectedItem) { newItem in
+                    Task {
+                        // Retrive selected asset in the form of Data
+                                if let data = try? await newItem?.loadTransferable(type: Data.self) {
+                                    viewModel.selectedImageData = data
+                        }
+                    }
+                }
                 
                 Button {
                     viewModel.handleSaveAction()
