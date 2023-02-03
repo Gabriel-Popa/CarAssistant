@@ -11,7 +11,7 @@ struct ImageCardView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
-                .frame(width: 93, height: 70)
+                .frame(width: 80, height: 80)
                 .foregroundColor(.gray)
             Image("Noimage")
                 .resizable()

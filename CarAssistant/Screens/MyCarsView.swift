@@ -12,6 +12,18 @@ extension MyCarsView {
         @Published var toAddCar = false
         @Published var cars = [Car]()
         
+        init() {
+            let encodedCars = UserDefaults.standard.object(forKey: "myCars") as! Data
+            do {
+                let decoder = JSONDecoder()
+                let cars = try decoder.decode([Car].self, from: encodedCars)
+                self.cars = cars
+            } catch let error {
+                print("error: ", error)
+            }
+            
+        }
+        
         func handleAddAction() {
             self.toAddCar = true
         }
@@ -32,21 +44,41 @@ struct MyCarsView: View {
     
     var body: some View {
         NavigationView {
+            
             ZStack {
                 VStack {
                     ScrollView {
                         ForEach(viewModel.cars) { myCar in
-                            HStack {
+                            
+                            NavigationLink {
+                                AlertsView()
+                            } label: {
+//                                ZStack(alignment: .leading) {
+//                                    RoundedRectangle(cornerRadius: 20)
+//                                        .padding()
+//                                        .shadow(radius: 3)
+                                    HStack() {
+                                        Image(uiImage: (UIImage(data: myCar.carImage!) ?? UIImage(named: "Noimage"))!)
+                                            .resizable()
+                                            .cornerRadius(10)
+                                            .frame(width: 90, height: 90)
+                                        
+                                        VStack(alignment: .leading) {
+                                            Text("\(myCar.plateNumber)")
+                                                .bold()
+                                            Text("\(myCar.carModel)")
+                                        }
+                                        Spacer()
+                                        
+                                    }
+                                    .padding(.leading, 20)
                                 
-                                ImageCardView()
-                                
-                                VStack {
-                                    Text("\(myCar.plateNumber)")
-                                        .bold()
-                                    Text("\(myCar.carModel)")
-                                }
+//                                }
+//                                .frame(width: 380, height: 120)
+//                                .foregroundColor(.white)
+//                                Spacer()
                             }
-                            .padding(.trailing, 90)
+                            .foregroundColor(.black)
                         }
                     }
                 }

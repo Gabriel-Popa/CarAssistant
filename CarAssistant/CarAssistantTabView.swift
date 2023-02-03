@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CarAssistantTabView: View {
     
-    static var myCarTab = 0
+    static var myCarsTab = 0
     static var alertsTab = 1
     
-    @State var selectedTab = myCarTab
+    @State var selectedTab = myCarsTab
     
     var body: some View {
         
@@ -24,7 +24,7 @@ struct CarAssistantTabView: View {
                         Text("My cars")
                 }
             }
-            .tag(CarAssistantTabView.myCarTab)
+            .tag(CarAssistantTabView.myCarsTab)
             
             AlertsView()
                 .tabItem {

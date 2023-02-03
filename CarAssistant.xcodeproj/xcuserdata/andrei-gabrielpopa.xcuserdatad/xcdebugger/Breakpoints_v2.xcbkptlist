@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C0B270BD-D2DE-424F-9C60-FB3729D146A2"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "926EDF2F-B1E1-450D-9654-891A8315FDB4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarAssistant/Model/Car.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "Car"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "926EDF2F-B1E1-450D-9654-891A8315FDB4 - c9a03e737e3f420b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarAssistant.Car.init(id: Foundation.UUID, plateNumber: Swift.String, carModel: Swift.String, carImage: Swift.Optional&lt;Foundation.Data&gt;) -&gt; CarAssistant.Car"
+                  moduleName = "CarAssistant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrei-gabrielpopa/Desktop/Xcode/CarAssistant/CarAssistant/Model/Car.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "926EDF2F-B1E1-450D-9654-891A8315FDB4 - 850e4984a3944853"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CarAssistant.Car.init(from: Swift.Decoder) throws -&gt; CarAssistant.Car"
+                  moduleName = "CarAssistant"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/andrei-gabrielpopa/Desktop/Xcode/CarAssistant/CarAssistant/Model/Car.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A52E0EB-BB0C-464F-AE76-DF8B38C67219"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarAssistant/Model/Car.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "Car"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

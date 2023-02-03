@@ -25,7 +25,17 @@ extension AddCarView {
         }
         
         func handleSaveAction() {
-            myCars.append(Car(id: UUID(), plateNumber: "\(myPlateNumber)", carModel: "\(myCarModel)", carImage: ""))
+            myCars.append(Car(id: UUID(), plateNumber: "\(myPlateNumber)", carModel: "\(myCarModel)", carImage: selectedImageData ?? Data()))
+            do {
+                let encoder = JSONEncoder()
+                let myCarsEncoded = try encoder.encode(myCars)
+                
+                UserDefaults.standard.set(myCarsEncoded, forKey: "myCars")
+                UserDefaults.standard.synchronize()
+            } catch let error {
+                print("error: ", error)
+            }
+            
             isVisible = false
         }
     }
@@ -98,6 +108,7 @@ struct AddCarView: View {
                     viewModel.handleSaveAction()
                 } label: {
                     Text("Save")
+                    
                 }
 
                 Spacer()
@@ -108,6 +119,6 @@ struct AddCarView: View {
 
 struct AddCarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddCarView(viewModel: .init(isVisible: .constant(true), myCars: .constant([.init(id: .init(), plateNumber: "CT96AGP", carModel: "KIA", carImage: "CEE'D")])))
+        AddCarView(viewModel: .init(isVisible: .constant(true), myCars: .constant([.init(id: .init(), plateNumber: "CT96AGP", carModel: "KIA", carImage: Data())])))
     }
 }
