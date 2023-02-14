@@ -26,14 +26,14 @@ struct CarAssistantTabView: View {
             }
             .tag(CarAssistantTabView.myCarsTab)
             
-            AlertsView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "bell")
-                        Text("Alerts")
-                    }
-                }
-                .tag(CarAssistantTabView.alertsTab)
+//            AlertsView()
+//                .tabItem {
+//                    VStack {
+//                        Image(systemName: "bell")
+//                        Text("Alerts")
+//                    }
+//                }
+//                .tag(CarAssistantTabView.alertsTab)
         }
     }
 }

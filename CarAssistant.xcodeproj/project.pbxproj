@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		081F1E0C297EB2A60037CF95 /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F1E0B297EB2A60037CF95 /* AlertsView.swift */; };
+		081F1E0C297EB2A60037CF95 /* AddAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F1E0B297EB2A60037CF95 /* AddAlertsView.swift */; };
 		081F1E0E297EBDB10037CF95 /* ImageCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081F1E0D297EBDB10037CF95 /* ImageCardView.swift */; };
+		08436F3029927BD800A81237 /* CarsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08436F2F29927BD800A81237 /* CarsManager.swift */; };
 		086E894F29812A4E0045B016 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E894E29812A4E0045B016 /* Car.swift */; };
 		086E8956298180090045B016 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E8955298180090045B016 /* SearchBarView.swift */; };
 		086E89582982B2160045B016 /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086E89572982B2160045B016 /* AddCarView.swift */; };
@@ -18,11 +19,13 @@
 		0880705F297E8A530097D59B /* CarAssistantTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705B297E8A530097D59B /* CarAssistantTabView.swift */; };
 		08807060297E8A530097D59B /* MyCarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705C297E8A530097D59B /* MyCarsView.swift */; };
 		08807062297E8A530097D59B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705E297E8A530097D59B /* SplashScreenView.swift */; };
+		0897CB42298D4D3600F74370 /* RcaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897CB41298D4D3600F74370 /* RcaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		081F1E0B297EB2A60037CF95 /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
+		081F1E0B297EB2A60037CF95 /* AddAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlertsView.swift; sourceTree = "<group>"; };
 		081F1E0D297EBDB10037CF95 /* ImageCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCardView.swift; sourceTree = "<group>"; };
+		08436F2F29927BD800A81237 /* CarsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsManager.swift; sourceTree = "<group>"; };
 		086E894E29812A4E0045B016 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		086E8955298180090045B016 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		086E89572982B2160045B016 /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 		0880705B297E8A530097D59B /* CarAssistantTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarAssistantTabView.swift; sourceTree = "<group>"; };
 		0880705C297E8A530097D59B /* MyCarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsView.swift; sourceTree = "<group>"; };
 		0880705E297E8A530097D59B /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		0897CB41298D4D3600F74370 /* RcaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RcaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08436F2E29927BC400A81237 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				08436F2F29927BD800A81237 /* CarsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		086E894D29812A3B0045B016 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,9 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				0880705E297E8A530097D59B /* SplashScreenView.swift */,
-				081F1E0B297EB2A60037CF95 /* AlertsView.swift */,
-				0880705C297E8A530097D59B /* MyCarsView.swift */,
-				086E89572982B2160045B016 /* AddCarView.swift */,
+				57C5C0132996999B002CE3ED /* MyCars */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -86,6 +96,7 @@
 			children = (
 				0880704D297E8A2D0097D59B /* CarAssistantApp.swift */,
 				0880705B297E8A530097D59B /* CarAssistantTabView.swift */,
+				08436F2E29927BC400A81237 /* Managers */,
 				086E8953298149340045B016 /* Screens */,
 				08807063297E8A600097D59B /* Views */,
 				086E894D29812A3B0045B016 /* Model */,
@@ -110,6 +121,17 @@
 				086E8955298180090045B016 /* SearchBarView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		57C5C0132996999B002CE3ED /* MyCars */ = {
+			isa = PBXGroup;
+			children = (
+				0880705C297E8A530097D59B /* MyCarsView.swift */,
+				0897CB41298D4D3600F74370 /* RcaView.swift */,
+				081F1E0B297EB2A60037CF95 /* AddAlertsView.swift */,
+				086E89572982B2160045B016 /* AddCarView.swift */,
+			);
+			path = MyCars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,13 +206,15 @@
 			files = (
 				08807062297E8A530097D59B /* SplashScreenView.swift in Sources */,
 				081F1E0E297EBDB10037CF95 /* ImageCardView.swift in Sources */,
-				081F1E0C297EB2A60037CF95 /* AlertsView.swift in Sources */,
+				081F1E0C297EB2A60037CF95 /* AddAlertsView.swift in Sources */,
 				086E89582982B2160045B016 /* AddCarView.swift in Sources */,
 				0880704E297E8A2D0097D59B /* CarAssistantApp.swift in Sources */,
 				086E8956298180090045B016 /* SearchBarView.swift in Sources */,
 				0880705F297E8A530097D59B /* CarAssistantTabView.swift in Sources */,
 				086E894F29812A4E0045B016 /* Car.swift in Sources */,
 				08807060297E8A530097D59B /* MyCarsView.swift in Sources */,
+				0897CB42298D4D3600F74370 /* RcaView.swift in Sources */,
+				08436F3029927BD800A81237 /* CarsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

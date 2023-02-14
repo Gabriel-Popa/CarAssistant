@@ -8,20 +8,13 @@
 import SwiftUI
 
 extension MyCarsView {
+    
     @MainActor class ViewModel: ObservableObject {
         @Published var toAddCar = false
-        @Published var cars = [Car]()
+        @Published var cars: [Car] = []
         
-        init() {
-            let encodedCars = UserDefaults.standard.object(forKey: "myCars") as! Data
-            do {
-                let decoder = JSONDecoder()
-                let cars = try decoder.decode([Car].self, from: encodedCars)
-                self.cars = cars
-            } catch let error {
-                print("error: ", error)
-            }
-            
+        func onAppear() {
+            self.cars = CarsManager.shared.getCars()
         }
         
         func handleAddAction() {
@@ -35,6 +28,14 @@ extension MyCarsView {
         func isButtonFromNavigationBarVisible() -> Bool {
             return cars.isEmpty == false
         }
+        
+        func deleteCar(at offSets: IndexSet) {
+            if let index = offSets.first {
+                CarsManager.shared.deleteCar(car: cars[index]) {
+                    self.cars = CarsManager.shared.getCars()
+                }
+            }
+        }
     }
 }
 
@@ -43,25 +44,23 @@ struct MyCarsView: View {
     @StateObject var viewModel: ViewModel = .init()
     
     var body: some View {
+        
         NavigationView {
-            
             ZStack {
                 VStack {
-                    ScrollView {
-                        ForEach(viewModel.cars) { myCar in
-                            
-                            NavigationLink {
-                                AlertsView()
-                            } label: {
-//                                ZStack(alignment: .leading) {
-//                                    RoundedRectangle(cornerRadius: 20)
-//                                        .padding()
-//                                        .shadow(radius: 3)
+                        List {
+                            ForEach(viewModel.cars) { myCar in
+                                
+                                NavigationLink {
+                                    AddAlertsView(viewModel: .init(car: myCar))
+                                    
+                                } label: {
+                                    
                                     HStack() {
                                         Image(uiImage: (UIImage(data: myCar.carImage!) ?? UIImage(named: "Noimage"))!)
                                             .resizable()
                                             .cornerRadius(10)
-                                            .frame(width: 90, height: 90)
+                                            .frame(width: 135, height: 90)
                                         
                                         VStack(alignment: .leading) {
                                             Text("\(myCar.plateNumber)")
@@ -71,19 +70,15 @@ struct MyCarsView: View {
                                         Spacer()
                                         
                                     }
-                                    .padding(.leading, 20)
-                                
-//                                }
-//                                .frame(width: 380, height: 120)
-//                                .foregroundColor(.white)
-//                                Spacer()
+                                }
+                                .foregroundColor(.black)
                             }
-                            .foregroundColor(.black)
+                            .onDelete(perform: viewModel.deleteCar)
                         }
-                    }
                 }
                 
                 if viewModel.isButtonFromListVisible() {
+                    
                     VStack {
                         Spacer()
                         Button {
@@ -102,24 +97,28 @@ struct MyCarsView: View {
                         Spacer()
                     }
                 }
-            }
+            }.onAppear(perform: {
+                viewModel.onAppear()
+            })
             .sheet(isPresented: $viewModel.toAddCar) {
                 AddCarView(viewModel: .init(isVisible: $viewModel.toAddCar, myCars: $viewModel.cars))
             }
             .navigationTitle("My Cars")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                
                 Button {
+                    
                     viewModel.handleAddAction()
+                    
                 } label: {
+                    
                     if viewModel.isButtonFromNavigationBarVisible() {
                         
                         Spacer()
                         
                         VStack {
-                            
                             Text("Add Car")
-                                
                             Spacer()
                         }
                         .padding()

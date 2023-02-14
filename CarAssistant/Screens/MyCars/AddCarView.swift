@@ -25,16 +25,10 @@ extension AddCarView {
         }
         
         func handleSaveAction() {
-            myCars.append(Car(id: UUID(), plateNumber: "\(myPlateNumber)", carModel: "\(myCarModel)", carImage: selectedImageData ?? Data()))
-            do {
-                let encoder = JSONEncoder()
-                let myCarsEncoded = try encoder.encode(myCars)
-                
-                UserDefaults.standard.set(myCarsEncoded, forKey: "myCars")
-                UserDefaults.standard.synchronize()
-            } catch let error {
-                print("error: ", error)
-            }
+            let car = Car(id: UUID(), plateNumber: "\(myPlateNumber)", carModel: "\(myCarModel)", carImage: selectedImageData ?? Data())
+            myCars.append(car)
+            
+            CarsManager.shared.addCar(car: car)
             
             isVisible = false
         }
