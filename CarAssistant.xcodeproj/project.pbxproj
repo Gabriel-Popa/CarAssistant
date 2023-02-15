@@ -20,6 +20,8 @@
 		08807060297E8A530097D59B /* MyCarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705C297E8A530097D59B /* MyCarsView.swift */; };
 		08807062297E8A530097D59B /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0880705E297E8A530097D59B /* SplashScreenView.swift */; };
 		0897CB42298D4D3600F74370 /* RcaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0897CB41298D4D3600F74370 /* RcaView.swift */; };
+		57D5638A299D1C42002855BA /* ItpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D56389299D1C42002855BA /* ItpView.swift */; };
+		57D5638C299D2734002855BA /* VignetteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D5638B299D2734002855BA /* VignetteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		0880705C297E8A530097D59B /* MyCarsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCarsView.swift; sourceTree = "<group>"; };
 		0880705E297E8A530097D59B /* SplashScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		0897CB41298D4D3600F74370 /* RcaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RcaView.swift; sourceTree = "<group>"; };
+		57D56389299D1C42002855BA /* ItpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItpView.swift; sourceTree = "<group>"; };
+		57D5638B299D2734002855BA /* VignetteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VignetteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +100,10 @@
 			children = (
 				0880704D297E8A2D0097D59B /* CarAssistantApp.swift */,
 				0880705B297E8A530097D59B /* CarAssistantTabView.swift */,
-				08436F2E29927BC400A81237 /* Managers */,
 				086E8953298149340045B016 /* Screens */,
 				08807063297E8A600097D59B /* Views */,
 				086E894D29812A3B0045B016 /* Model */,
+				08436F2E29927BC400A81237 /* Managers */,
 				08807051297E8A2F0097D59B /* Assets.xcassets */,
 				08807053297E8A2F0097D59B /* Preview Content */,
 			);
@@ -130,6 +134,8 @@
 				0897CB41298D4D3600F74370 /* RcaView.swift */,
 				081F1E0B297EB2A60037CF95 /* AddAlertsView.swift */,
 				086E89572982B2160045B016 /* AddCarView.swift */,
+				57D56389299D1C42002855BA /* ItpView.swift */,
+				57D5638B299D2734002855BA /* VignetteView.swift */,
 			);
 			path = MyCars;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08807062297E8A530097D59B /* SplashScreenView.swift in Sources */,
+				57D5638C299D2734002855BA /* VignetteView.swift in Sources */,
 				081F1E0E297EBDB10037CF95 /* ImageCardView.swift in Sources */,
 				081F1E0C297EB2A60037CF95 /* AddAlertsView.swift in Sources */,
 				086E89582982B2160045B016 /* AddCarView.swift in Sources */,
@@ -212,6 +219,7 @@
 				086E8956298180090045B016 /* SearchBarView.swift in Sources */,
 				0880705F297E8A530097D59B /* CarAssistantTabView.swift in Sources */,
 				086E894F29812A4E0045B016 /* Car.swift in Sources */,
+				57D5638A299D1C42002855BA /* ItpView.swift in Sources */,
 				08807060297E8A530097D59B /* MyCarsView.swift in Sources */,
 				0897CB42298D4D3600F74370 /* RcaView.swift in Sources */,
 				08436F3029927BD800A81237 /* CarsManager.swift in Sources */,

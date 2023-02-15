@@ -11,7 +11,8 @@ extension AddAlertsView {
     @MainActor class ViewModel: ObservableObject {
         @Published var car: Car
         @Published var isRcaViewVisible = false
-        
+        @Published var isItpViewVisible = false
+        @Published var isVignetteViewVisible = false
         
         init(car: Car) {
             self.car = car
@@ -21,9 +22,41 @@ extension AddAlertsView {
             CarsManager.shared.updateCar(car: car)
         }
         
-        func handleAddButton() {
+        func handleRcaAddButton() {
             self.isRcaViewVisible = true
-
+        }
+        
+        func handleItpAddButton() {
+            self.isItpViewVisible = true
+        }
+        
+        func handleVignetteAddButton() {
+            self.isVignetteViewVisible = true
+        }
+        
+        func calculateRcaInterval() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .none
+            
+            return dateFormatter.string(from: car.rcaExpDate!)
+        }
+        
+        func calculateItpInterval() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .none
+            
+            return dateFormatter.string(from: car.itpExpDate!)
+        }
+        
+        func calculateVignetteInterval() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            dateFormatter.timeStyle = .none
+            
+            return dateFormatter.string(from: car.vignetteExpDate!)
+            
         }
     }
 }
@@ -61,21 +94,27 @@ struct AddAlertsView: View {
                                 .bold()
                                 .font(.system(size: 16))
                             Button {
-                                
+                                viewModel.handleItpAddButton()
                             } label: {
-                                Text("Add expiration date")
+                                if viewModel.car.itpExpDate == nil {
+                                    Text("Add expiration date")
+                                } else {
+                                    Text("Edit expiration date")
+                                }
                             }
-
-
                         }
                         
-                        Text("Your ITP will expire in n days !")
-                            .font(.system(size: 15))
-                            .padding()
+                        if viewModel.car.itpExpDate != nil {
+                            Text("Your ITP will expire on \(viewModel.calculateItpInterval()) !")
+                                .font(.system(size: 15))
+                                .padding()
+                        } else {
+                            Text("")
+                        }
                     }
                     
                     Spacer()
-
+                    
                     VStack {
                         HStack {
                             Text("Auto Liability Insurance(RCA):")
@@ -83,7 +122,7 @@ struct AddAlertsView: View {
                                 .font(.system(size: 16))
                             
                             Button {
-                                viewModel.handleAddButton()
+                                viewModel.handleRcaAddButton()
                             } label: {
                                 
                                 if viewModel.car.rcaExpDate == nil {
@@ -94,10 +133,13 @@ struct AddAlertsView: View {
                             }
                         }
                     }
-                    
-                    Text("Your RCA will expire in n days !")
-                        .font(.system(size: 15))
-                        .padding()
+                    if viewModel.car.rcaExpDate != nil {
+                        Text("Your RCA will expire on \(viewModel.calculateRcaInterval()) !")
+                            .font(.system(size: 15))
+                            .padding()
+                    } else {
+                        Text("")
+                    }
                     
                     Spacer()
                     
@@ -106,35 +148,58 @@ struct AddAlertsView: View {
                             Text("Vignette:")
                                 .bold()
                                 .font(.system(size: 16))
-
+                            
                             Button {
-                                //TODO: Implement add button
+                                viewModel.handleVignetteAddButton()
                             } label: {
-                                Text("Add expiration date")
+                                
+                                if viewModel.car.vignetteExpDate == nil {
+                                    Text("Add expiration date")
+                                } else {
+                                    Text("Edit expiration date")
+                                }
                             }
                         }
                     }
-                    
-                    Text("Your vignette will expire in n days !")
-                        .font(.system(size: 15))
-                        .padding()
+                    if viewModel.car.vignetteExpDate != nil {
+                        Text("Your Vignette will expire on \(viewModel.calculateVignetteInterval()) !")
+                            .font(.system(size: 15))
+                            .padding()
+                    } else {
+                        Text("")
+                    }
                     
                     Spacer()
-        
+                    
                 }
                 .padding(.top, 50)
                 .navigationTitle("Alerts")
                 .navigationBarTitleDisplayMode(.inline)
-            
-            
-            NavigationLink(isActive: $viewModel.isRcaViewVisible) {
-                RcaView(viewModel: .init(car: $viewModel.car, completionHandler: { car in
-                    viewModel.handleCarUpdate(car: viewModel.car)
-                }, isVisible: $viewModel.isRcaViewVisible))
-            } label: {
-                EmptyView()
-            }
                 
+                
+                NavigationLink(isActive: $viewModel.isRcaViewVisible) {
+                    RcaView(viewModel: .init(car: $viewModel.car, completionHandler: { car in
+                        viewModel.handleCarUpdate(car: viewModel.car)
+                    }, isVisible: $viewModel.isRcaViewVisible))
+                } label: {
+                    EmptyView()
+                }
+                
+                NavigationLink(isActive: $viewModel.isItpViewVisible) {
+                    ItpView(viewModel: .init(car: $viewModel.car, completionHandler: { car in
+                        viewModel.handleCarUpdate(car: viewModel.car)
+                    }, isVisible: $viewModel.isItpViewVisible))
+                } label: {
+                    EmptyView()
+                }
+                
+                NavigationLink(isActive: $viewModel.isVignetteViewVisible) {
+                    VignetteView(viewModel: .init(car: $viewModel.car, completionHandler: { car in
+                        viewModel.handleCarUpdate(car: viewModel.car)
+                    }, isVisible: $viewModel.isVignetteViewVisible))
+                } label: {
+                    EmptyView()
+                }
             }
         }
         

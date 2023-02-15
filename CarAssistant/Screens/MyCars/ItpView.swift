@@ -1,14 +1,14 @@
 //
-//  RcaView.swift
+//  ItpView.swift
 //  CarAssistant
 //
-//  Created by Andrei-Gabriel Popa on 03.02.2023.
+//  Created by Gabriel Popa on 15.02.2023.
 //
 
 import SwiftUI
 import PhotosUI
 
-extension RcaView {
+extension ItpView {
     @MainActor class ViewModel: ObservableObject {
         @Published var selectedItem: PhotosPickerItem? = nil
         @Published var selectedImageData: Data? = nil
@@ -18,11 +18,11 @@ extension RcaView {
         var completionHandler: (_ car: Car) -> Void
         
         init(car: Binding<Car>, completionHandler: @escaping (_ car: Car) -> Void, isVisible: Binding<Bool>) {
-            if let rcaExpDate = car.wrappedValue.rcaExpDate {
-                self.selectedDate = rcaExpDate
+            if let itpExpDate = car.wrappedValue.itpExpDate {
+                self.selectedDate = itpExpDate
             }
             
-            if let selectedImage = car.wrappedValue.rcaSelectedImage {
+            if let selectedImage = car.wrappedValue.itpSelectedImage {
                 self.selectedImageData = selectedImage
             }
             _car = car
@@ -33,8 +33,8 @@ extension RcaView {
         func saveData() {
             DispatchQueue.main.async { [weak self] in
                 guard let weakSelf = self else { return }
-                weakSelf.car.rcaExpDate = weakSelf.selectedDate
-                weakSelf.car.rcaSelectedImage = weakSelf.selectedImageData
+                weakSelf.car.itpExpDate = weakSelf.selectedDate
+                weakSelf.car.itpSelectedImage = weakSelf.selectedImageData
                 weakSelf.completionHandler(weakSelf.car)
                 weakSelf.isVisible = false
             }
@@ -46,7 +46,7 @@ extension RcaView {
     }
 }
 
-struct RcaView: View {
+struct ItpView: View {
     
     @StateObject var viewModel: ViewModel
     
@@ -61,7 +61,7 @@ struct RcaView: View {
                 Text("Choose your date")
                     .font(.system(size: 15))
             }
-            .navigationTitle("RCA")
+            .navigationTitle("ITP")
             
             Text("Choose an image/doc:")
                 .bold()
@@ -139,8 +139,9 @@ struct RcaView: View {
     }
 }
 
-struct RcaView_Previews: PreviewProvider {
+struct ItpView_Previews: PreviewProvider {
     static var previews: some View {
-        RcaView(viewModel: .init(car: .constant(.init(id: .init(), plateNumber: "CT-05-321", carModel: "Kia Sorento", carImage: nil)), completionHandler: { car in }, isVisible: .constant(true)))
+        ItpView(viewModel: .init(car: .constant(.init(id: .init(), plateNumber: "CT-05-321", carModel: "Kia Sorento", carImage: nil)), completionHandler: { car in }, isVisible: .constant(true)))
+        
     }
 }

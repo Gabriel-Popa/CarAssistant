@@ -12,16 +12,25 @@ class Car: Identifiable, Codable {
     var plateNumber: String
     var carModel: String
     var carImage: Data?
+    var itpExpDate: Date?
     var rcaExpDate: Date?
-    var selectedImage: Data?
+    var vignetteExpDate: Date?
+    var rcaSelectedImage: Data?
+    var itpSelectedImage: Data?
+    var vignetteSelectedImage: Data?
     
-    init(id: UUID, plateNumber: String, carModel: String, carImage: Data?, rcaExpDate: Date? = nil, selectedImage: Data? = nil) {
+    
+    init(id: UUID, plateNumber: String, carModel: String, carImage: Data?, itpExpDate: Date? = nil , itpSelectedImage: Data? = nil, rcaExpDate: Date? = nil, rcaSelectedImage: Data? = nil, vignetteExpDate: Date? = nil, vignetteSelectedImage: Data? = nil) {
         self.id = id
         self.plateNumber = plateNumber
         self.carModel = carModel
         self.carImage = carImage
+        self.itpSelectedImage = itpSelectedImage
+        self.rcaSelectedImage = rcaSelectedImage
+        self.itpExpDate = itpExpDate
         self.rcaExpDate = rcaExpDate
-        self.selectedImage = selectedImage
+        self.vignetteExpDate = vignetteExpDate
+        
     }
     
     required init(from decoder: Decoder) throws {
@@ -35,9 +44,22 @@ class Car: Identifiable, Codable {
         if let rcaExpDate = try? container.decode(Date?.self, forKey: .rcaExpDate) {
             self.rcaExpDate = rcaExpDate
         }
-        if let selectedImage = try? container.decode(Data?.self, forKey: .selectedImage) {
-            self.selectedImage = selectedImage
+        if let rcaSelectedImage = try? container.decode(Data?.self, forKey: .rcaSelectedImage) {
+            self.rcaSelectedImage = rcaSelectedImage
         }
+        if let itpExpDate = try? container.decode(Date?.self, forKey: .itpExpDate) {
+            self.itpExpDate = itpExpDate
+        }
+        if let itpSelectedImage = try? container.decode(Data?.self, forKey: .itpSelectedImage) {
+            self.itpSelectedImage = itpSelectedImage
+        }
+        if let vignetteExpDate = try? container.decode(Date?.self, forKey: .vignetteExpDate) {
+            self.vignetteExpDate = vignetteExpDate
+        }
+        if let vignetteSelectedImage = try? container.decode(Data?.self, forKey: .vignetteSelectedImage) {
+            self.vignetteSelectedImage = vignetteSelectedImage
+        }
+        
     }
 //    
 
@@ -48,8 +70,12 @@ class Car: Identifiable, Codable {
         case plateNumber
         case carModel
         case carImage
+        case itpExpDate
         case rcaExpDate
-        case selectedImage
+        case vignetteExpDate
+        case itpSelectedImage
+        case rcaSelectedImage
+        case vignetteSelectedImage
     }
 }
 

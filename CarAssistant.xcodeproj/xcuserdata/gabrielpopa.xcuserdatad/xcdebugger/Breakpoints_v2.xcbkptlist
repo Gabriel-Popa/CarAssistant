@@ -30,8 +30,8 @@
             filePath = "CarAssistant/Screens/MyCars/MyCarsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4DA2797A-BA78-4190-AECC-6983D324B0E7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAssistant/Managers/CarsManager.swift"
@@ -56,7 +56,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "168E1C3E-B1A6-4D84-B424-0F3A0952940B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAssistant/Managers/CarsManager.swift"
@@ -68,11 +68,11 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "168E1C3E-B1A6-4D84-B424-0F3A0952940B - 54cf6e86f31459e7"
+                  uuid = "168E1C3E-B1A6-4D84-B424-0F3A0952940B - e18ecbca44d634f4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CarAssistant.CarsManager.save(cars: Swift.Array&lt;CarAssistant.Car&gt;) -&gt; ()"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CarAssistant.CarsManager.save(cars: Swift.Array&lt;CarAssistant.Car&gt;, onDeleteCompleted: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
                   moduleName = "CarAssistant"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gabrielpopa/Desktop/CarAssistant/CarAssistant/Managers/CarsManager.swift"
@@ -80,14 +80,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
                   endingLineNumber = "54"
-                  offsetFromSymbolStart = "514">
+                  offsetFromSymbolStart = "549">
                </Location>
                <Location
-                  uuid = "168E1C3E-B1A6-4D84-B424-0F3A0952940B - 54cf6e86f31459e7"
+                  uuid = "168E1C3E-B1A6-4D84-B424-0F3A0952940B - e18ecbca44d634f4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CarAssistant.CarsManager.save(cars: Swift.Array&lt;CarAssistant.Car&gt;) -&gt; ()"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in CarAssistant.CarsManager.save(cars: Swift.Array&lt;CarAssistant.Car&gt;, onDeleteCompleted: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
                   moduleName = "CarAssistant"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gabrielpopa/Desktop/CarAssistant/CarAssistant/Managers/CarsManager.swift"
@@ -95,7 +95,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
                   endingLineNumber = "54"
-                  offsetFromSymbolStart = "942">
+                  offsetFromSymbolStart = "1079">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -104,7 +104,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "6F866EF0-E71D-4B05-99DD-75BF74E51E0D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAssistant/Managers/CarsManager.swift"
@@ -116,11 +116,11 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6F866EF0-E71D-4B05-99DD-75BF74E51E0D - 8b634b9f51156b82"
+                  uuid = "6F866EF0-E71D-4B05-99DD-75BF74E51E0D - 2328266cd8975e33"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "CarAssistant.CarsManager.deleteCar(car: CarAssistant.Car) -&gt; ()"
+                  symbolName = "CarAssistant.CarsManager.deleteCar(car: CarAssistant.Car, onDeleteCompleted: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
                   moduleName = "CarAssistant"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gabrielpopa/Desktop/CarAssistant/CarAssistant/Managers/CarsManager.swift"
@@ -128,14 +128,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
                   endingLineNumber = "33"
-                  offsetFromSymbolStart = "80">
+                  offsetFromSymbolStart = "103">
                </Location>
                <Location
-                  uuid = "6F866EF0-E71D-4B05-99DD-75BF74E51E0D - 331c3a398e18b470"
+                  uuid = "6F866EF0-E71D-4B05-99DD-75BF74E51E0D - 95c3fa0640852cfd"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (CarAssistant.Car) -&gt; Swift.Bool in CarAssistant.CarsManager.deleteCar(car: CarAssistant.Car) -&gt; ()"
+                  symbolName = "closure #1 (CarAssistant.Car) -&gt; Swift.Bool in CarAssistant.CarsManager.deleteCar(car: CarAssistant.Car, onDeleteCompleted: Swift.Optional&lt;() -&gt; ()&gt;) -&gt; ()"
                   moduleName = "CarAssistant"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gabrielpopa/Desktop/CarAssistant/CarAssistant/Managers/CarsManager.swift"
@@ -152,7 +152,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8BFE388B-9DB2-4C47-A367-5EEC34ACE1AC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAssistant/Managers/CarsManager.swift"
@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4B3B6AF1-AAA4-44B2-95DB-D574F44DE239"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarAssistant/Screens/MyCars/MyCarsView.swift"

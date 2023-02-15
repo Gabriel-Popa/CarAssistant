@@ -61,6 +61,7 @@ struct MyCarsView: View {
                                             .resizable()
                                             .cornerRadius(10)
                                             .frame(width: 135, height: 90)
+                                            .shadow(radius: 3)
                                         
                                         VStack(alignment: .leading) {
                                             Text("\(myCar.plateNumber)")
