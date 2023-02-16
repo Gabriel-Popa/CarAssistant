@@ -37,6 +37,31 @@ extension RcaView {
                 weakSelf.car.rcaSelectedImage = weakSelf.selectedImageData
                 weakSelf.completionHandler(weakSelf.car)
                 weakSelf.isVisible = false
+                weakSelf.setNotificationForRca(expireDate: weakSelf.selectedDate)
+            }
+        }
+        
+        func setNotificationForRca(expireDate: Date) {
+            // adding -7 days in seconds
+            // basically expireDate - 7days
+            let notificationDate = expireDate.addingTimeInterval(-604800)
+            
+            let center = UNUserNotificationCenter.current()
+
+            let content = UNMutableNotificationContent()
+            content.title = "RCA"
+            content.body = "Your \(car.plateNumber) RCA will expire on \(notificationDate)"
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notificationDate.timeIntervalSinceNow, repeats: false)
+
+            let request = UNNotificationRequest(identifier: "ct96agp.rca", content: content, trigger: trigger)
+            print("notificationDate: \(notificationDate.description)")
+            center.removePendingNotificationRequests(withIdentifiers: ["ct96agp.rca"])
+
+            center.add(request) { error in
+                if let error = error {
+                    print(error)
+                }
             }
         }
         

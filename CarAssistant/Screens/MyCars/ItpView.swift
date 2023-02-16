@@ -37,6 +37,30 @@ extension ItpView {
                 weakSelf.car.itpSelectedImage = weakSelf.selectedImageData
                 weakSelf.completionHandler(weakSelf.car)
                 weakSelf.isVisible = false
+                weakSelf.setNotificationForItp(expireDate: weakSelf.selectedDate)
+            }
+        }
+        
+        func setNotificationForItp(expireDate: Date) {
+            // adding -7 days in seconds
+            // basically expireDate - 7days
+            let notificationDate = expireDate.addingTimeInterval(-604800)
+            let center = UNUserNotificationCenter.current()
+
+            let content = UNMutableNotificationContent()
+            content.title = "ITP"
+            content.body = "Your \(car.plateNumber) ITP will expire on \(notificationDate)"
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notificationDate.timeIntervalSinceNow, repeats: false)
+
+            let request = UNNotificationRequest(identifier: "ct96agp.itp", content: content, trigger: trigger)
+            print("notificationDate: \(notificationDate.description)")
+            center.removePendingNotificationRequests(withIdentifiers: ["ct96agp.itp"])
+
+            center.add(request) { error in
+                if let error = error {
+                    print(error)
+                }
             }
         }
         

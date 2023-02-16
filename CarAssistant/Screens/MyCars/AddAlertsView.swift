@@ -56,7 +56,6 @@ extension AddAlertsView {
             dateFormatter.timeStyle = .none
             
             return dateFormatter.string(from: car.vignetteExpDate!)
-            
         }
     }
 }
@@ -137,6 +136,7 @@ struct AddAlertsView: View {
                         Text("Your RCA will expire on \(viewModel.calculateRcaInterval()) !")
                             .font(.system(size: 15))
                             .padding()
+                        
                     } else {
                         Text("")
                     }
@@ -202,7 +202,6 @@ struct AddAlertsView: View {
                 }
             }
         }
-        
     }
 }
 

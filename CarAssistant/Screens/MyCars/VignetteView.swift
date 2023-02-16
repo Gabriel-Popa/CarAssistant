@@ -37,8 +37,34 @@ extension VignetteView {
                 weakSelf.car.vignetteSelectedImage = weakSelf.selectedImageData
                 weakSelf.completionHandler(weakSelf.car)
                 weakSelf.isVisible = false
+                weakSelf.setNotificationForVignette(expireDate: weakSelf.selectedDate)
             }
         }
+        
+        func setNotificationForVignette(expireDate: Date) {
+            
+            // adding -7 days in seconds
+            // basically expireDate - 7days
+            let notificationDate = expireDate.addingTimeInterval(-604800)
+            let center = UNUserNotificationCenter.current()
+
+            let content = UNMutableNotificationContent()
+            content.title = "Vignette"
+            content.body = "Your \(car.plateNumber) Vignette will expire on \(notificationDate)"
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notificationDate.timeIntervalSinceNow, repeats: false)
+
+            let request = UNNotificationRequest(identifier: "ct96agp.vignette", content: content, trigger: trigger)
+            print("notificationDate: \(notificationDate.description)")
+            center.removePendingNotificationRequests(withIdentifiers: ["ct96agp.vignette"])
+
+            center.add(request) { error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
+        
         
         func deletePhoto() {
             self.selectedImageData = nil
